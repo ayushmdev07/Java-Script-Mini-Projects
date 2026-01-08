@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<head>
+    <title>12 Hour Clock</title>
+    <style>
+          body {
+            background-color: black;
+            color: #00ffcc;
+            font-family: 'Courier New';
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+           
+        }
+
+        h1 {
+            font-size: 80px;
+            text-shadow: 0 0 20px #00ffcc, 0 0 40px #00ffcc, 0 0 60px #00ffcc;
+            border: 3px solid #00ffcc;
+            padding: 20px 40px;
+            border-radius: 15px;
+            background: rgba(0, 255, 204, 0.1);
+        }
+    </style>
+</head>
+<body onload="time()">
+    <h1 id="p"></h1>
+
+    <script>
+
+        function time(){
+            var hour = new Date().getHours();
+            var min = new Date().getMinutes();
+            var sec = new Date().getSeconds();
+
+               hour = (hour < 10) ? "0" + hour : hour;
+            min = (min < 10) ? "0" + min : min;
+            sec = (sec < 10) ? "0" + sec : sec;
+
+            
+            document.getElementById("p").innerHTML = hour + ":" + min + ":" + sec;
+        }
+        setInterval(time,1000);
+
+    </script>
+</body>
+</html>
