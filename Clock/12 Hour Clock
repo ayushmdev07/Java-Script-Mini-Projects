@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        background-color: black;
+        color: #00ffcc;
+        font-family: 'Courier New';
+        display: flex;
+        justify-content: center;
+        align-items: center; 
+        height: 100vh;
+
+    }
+
+    h1 {
+        font-size: 80px;
+        text-shadow: 0 0 20px #00ffcc, 0 0 40px #00ffcc, 0 0 60px #00ffcc;
+        border: 3px solid #00ffcc;
+        padding: 20px 40px;
+        border-radius: 15px;
+        background: rgba(0, 255, 204, 0.1);
+    }
+</style>
+
+<body onload="time()">
+    <h1 id="p"></h1>
+
+    <script>
+        var session = "AM";
+
+        function time() {
+            var hour = new Date().getHours();
+            var min = new Date().getMinutes();
+            var sec = new Date().getSeconds();
+
+
+            if (hour >= 12) {
+                session = "PM";
+            }
+            if (hour == 0) {
+                hour = 12;
+            }
+            else if (hour > 12) {
+                hour = hour - 12;
+            }
+
+
+          
+            document.getElementById("p").innerHTML = hour + ":" + min + ":" + sec + " " + session;
+
+        }
+
+
+
+
+        setInterval(time, 1000);
+
+    </script>
+</body>
+
+</html>
